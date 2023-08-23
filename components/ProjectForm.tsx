@@ -12,7 +12,7 @@ import { createProject, fetchToken, updateProject } from "@/lib/actions";
 type Props = {
   type: string;
   session: SessionInterface;
-  project: ProjectInterface;
+  project?: ProjectInterface;
 };
 
 const ProjectForm = ({ type, session, project }: Props) => {
@@ -28,7 +28,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
         router.push("/");
       }
       if (type === "edit") {
-        await updateProject(form, project.id, token);
+        await updateProject(form, project?.id as string, token);
         router.refresh();
         router.push("/");
       }

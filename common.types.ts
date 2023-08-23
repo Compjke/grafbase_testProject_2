@@ -50,6 +50,7 @@ export interface SessionInterface extends Session {
     name: string;
     email: string;
     avatarUrl: string;
+    project? : ProjectInterface
   };
 }
 
